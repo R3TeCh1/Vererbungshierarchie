@@ -21,7 +21,7 @@ public abstract class Mitarbeiter{
   }
 
   public float entgeltBerechnen() {
-    return 1;
+    return 1.0f;
   }
 
   @Override
