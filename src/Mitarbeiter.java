@@ -1,7 +1,7 @@
 public abstract class Mitarbeiter{
-  private String vorname;
-  private String nachname;
-  private float jahresGehaltBisHeute = 0;
+  protected String vorname;
+  protected String nachname;
+  protected float jahresGehaltBisHeute = 0;
 
   public Mitarbeiter(String vorname, String nachname) {
     this.vorname = vorname;
@@ -9,34 +9,27 @@ public abstract class Mitarbeiter{
   }
 
   public String getVorname() {
-    return vorname;
+    return this.vorname;
   }
 
   public String getNachname() {
-    return nachname;
+    return this.nachname;
   }
 
   public float getJahresGehaltBisHeute() {
-    return jahresGehaltBisHeute;
+    return this.jahresGehaltBisHeute;
   }
 
-  public double entgeltBerechnen(char operand, double gehalt) {
-    if (operand == '+') {
-      jahresGehaltBisHeute += gehalt;
-      return jahresGehaltBisHeute;
-    } else if (operand == '-') {
-      jahresGehaltBisHeute -= gehalt;
-      return jahresGehaltBisHeute;
-    } else {
-      return jahresGehaltBisHeute;
-    }
+  public double entgeltBerechnen() {
+    return 1.0;
   }
 
   @Override
   public String toString() {
-    return "Mitarbeiter{" +
-            "vorname='" + vorname + '\'' +
-            ", nachname='" + nachname + '\'' +
+    String s = "Mitarbeiter{" +
+            "vorname='" + this.vorname + '\'' +
+            ", nachname='" + this.nachname + '\'' +
             '}';
+    return s;
   }
 }
