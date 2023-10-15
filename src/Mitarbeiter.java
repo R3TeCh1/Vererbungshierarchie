@@ -20,8 +20,8 @@ public abstract class Mitarbeiter{
     return this.jahresGehaltBisHeute;
   }
 
-  public double entgeltBerechnen() {
-    return 1.0;
+  public float entgeltBerechnen() {
+    return 1;
   }
 
   @Override
