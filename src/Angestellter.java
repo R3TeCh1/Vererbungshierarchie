@@ -39,9 +39,4 @@ public class Angestellter extends Mitarbeiter{
         jahresGehaltBisHeute += monatsLohn * aktuellerMonat + gearbeiteteUeberstunden * ueberStundenTarif;
         return monatsLohn * aktuellerMonat + gearbeiteteUeberstunden * ueberStundenTarif;
     }
-
-    @Override
-    public String toString() {
-        return "Angestellter: " + getNachname() + ", " + getVorname();
-    }
 }

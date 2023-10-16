@@ -43,9 +43,4 @@ public class Zeitarbeiter extends Mitarbeiter{
         jahresGehaltBisHeute += entgelt;
         return entgelt;
     }
-
-    @Override
-    public String toString() {
-        return "Zeitarbeiter: " + getNachname() + ", " + getVorname();
-    }
 }

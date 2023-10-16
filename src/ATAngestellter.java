@@ -62,13 +62,4 @@ public class ATAngestellter extends Mitarbeiter {
     jahresGehaltBisHeute += monatsLohn * aktuellerMonat;
     return monatsLohn * aktuellerMonat;
   }
-
-  /**
-   * Erzeugt eine String-Repräsentation des AT-Angestellten.
-   *
-   * @return Die String-Repräsentation des AT-Angestellten.
-   */
-  public String toString() {
-    return "AT-Angestellter: " + getNachname() + ", " + getVorname();
-  }
 }

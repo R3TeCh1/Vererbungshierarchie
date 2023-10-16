@@ -20,12 +20,7 @@ public abstract class Mitarbeiter{
   }
 
   public float getJahresgehaltBisHeute() {
-    jahresGehaltBisHeute = 0;
-    int aktuellerMonat = new GregorianCalendar().get(Calendar.MONTH);
-    for (int month = 0; month < aktuellerMonat; month++) {
-      jahresGehaltBisHeute += entgeltBerechnen(month);
-    }
-    return jahresGehaltBisHeute;
+    return this.jahresGehaltBisHeute;
   }
 
   public abstract float entgeltBerechnen(int aktuellerMonat);

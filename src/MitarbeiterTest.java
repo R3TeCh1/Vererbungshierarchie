@@ -7,25 +7,25 @@ public class MitarbeiterTest {
     int aktuellerMonat = 10;
     angestellter.setGearbeiteteUeberstunden(12);
 
-    float zeitarbeiterEntgelt = zeitarbeiter.entgeltBerechnen(aktuellerMonat);
-    float aTAngestellterEntgelt = aTAngestellter.entgeltBerechnen(aktuellerMonat);
-    float angestellterEntgelt = angestellter.entgeltBerechnen(aktuellerMonat);
+    zeitarbeiter.entgeltBerechnen(aktuellerMonat);
+    aTAngestellter.entgeltBerechnen(aktuellerMonat);
+    angestellter.entgeltBerechnen(aktuellerMonat);
 
     System.out.println("----------------------------------------------------");
     System.out.println(zeitarbeiter.toString());
     System.out.println("Studenlohn: " + zeitarbeiter.getStundenLohn() + "€");
     System.out.println("Gearbeitete Stunden: " + zeitarbeiter.getGearbeiteteStunden());
-    System.out.print("Bis heute erhaltener Gehalt: " + zeitarbeiterEntgelt);
+    System.out.print("Bis heute erhaltener Gehalt: " + zeitarbeiter.getJahresgehaltBisHeute());
     System.out.println("€");
     System.out.println("----------------------------------------------------");
     System.out.println(aTAngestellter.toString());
     System.out.println("Monatslohn: " + aTAngestellter.getMonatsLohn() + "€");
-    System.out.print("Bis heute erhaltener Jahresgehalt: " + aTAngestellterEntgelt);
+    System.out.print("Bis heute erhaltener Jahresgehalt: " + aTAngestellter.getJahresgehaltBisHeute());
     System.out.println("€");
     System.out.println("----------------------------------------------------");
     System.out.println(angestellter.toString());
     System.out.println("Monatslohn: " + angestellter.getMonatsLohn() + "€");
-    System.out.print("Bis heute erhaltener Jahresgehalt: " + angestellterEntgelt);
+    System.out.print("Bis heute erhaltener Jahresgehalt: " + angestellter.getJahresgehaltBisHeute());
     System.out.println("€");
   }
 }
