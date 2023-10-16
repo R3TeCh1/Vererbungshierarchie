@@ -1,5 +1,4 @@
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  *
@@ -36,16 +35,16 @@ public class Angestellter extends Mitarbeiter{
     }
 
     @Override
-    public float entgeltBerechnen() {
-        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) jahresGehaltBisHeute = 0;
-        super.jahresGehaltBisHeute += monatsLohn + (gearbeiteteUeberstunden * ueberStundenTarif);
-        return monatsLohn + (gearbeiteteUeberstunden * ueberStundenTarif);
+    public float entgeltBerechnen(int aktuellerMonat) {
+        if (aktuellerMonat == 1) {
+            jahresGehaltBisHeute = 0;
+        }
+        jahresGehaltBisHeute += (monatsLohn + gearbeiteteUeberstunden * ueberStundenTarif) * aktuellerMonat;
+        return (monatsLohn + gearbeiteteUeberstunden * ueberStundenTarif) * aktuellerMonat;
     }
-
 
     @Override
     public String toString() {
         return "Angestellter: " + getNachname() + ", " + getVorname();
     }
-
 }

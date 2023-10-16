@@ -1,32 +1,22 @@
-/*
-* @author Nazanin Golalizadeh
-* @version 15.10.23
- */
-
-
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
+/*
+ * @author Nazanin Golalizadeh
+ * @version 15.10.23
+ */
 public class Zeitarbeiter extends Mitarbeiter{
-
-    private String vorname;
-    private String nachname;
-    private float jahresGehaltBisHeute;
     private float stundenLohn;
     private int gearbeiteteStunden;
 
 
     public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden){
         super(vorname, nachname);
-        this.vorname = vorname;
-        this.nachname = nachname;
         this.stundenLohn = stundenLohn;
         this.gearbeiteteStunden = gearbeiteteStunden;
     }
 
 
-    //Methoden
-
+    //Getter
     public String getVorname() {
         return vorname;
     }
@@ -35,10 +25,7 @@ public class Zeitarbeiter extends Mitarbeiter{
         return nachname;
     }
 
-    public float getJahresGehaltBisHeute() {
-        return jahresGehaltBisHeute;
-    }
-
+    //Methoden
     public float getStundenLohn() {
         return stundenLohn;
     }
@@ -52,10 +39,12 @@ public class Zeitarbeiter extends Mitarbeiter{
     }
 
     @Override
-    public float entgeltBerechnen() {
-        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) jahresGehaltBisHeute = 0;
+    public float entgeltBerechnen(int aktuellerMonat) {
+        if (aktuellerMonat == 1) {
+            jahresGehaltBisHeute = 0;
+        }
         float entgelt = gearbeiteteStunden * stundenLohn;
-        super.jahresGehaltBisHeute += entgelt;
+        jahresGehaltBisHeute += entgelt;
         return entgelt;
     }
 

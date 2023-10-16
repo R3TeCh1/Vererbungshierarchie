@@ -1,5 +1,4 @@
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Die Klasse ATAngestellter repräsentiert einen außertariflichen Angestellten.
@@ -10,14 +9,7 @@ import java.util.GregorianCalendar;
  * @version 1.0, 15.10.2023
  */
 public class ATAngestellter extends Mitarbeiter {
-  private String vorname;
-  private String nachname;
-  private float jahresGehaltBisHeute;
-
-  /** Das monatliche Bruttogehalt des AT-Angestellten. */
   private float monatsLohn;
-
-  /** Der Höchstbetrag für das Tarifgehalt. */
   private static final float HOECHSTES_TARIFGEHALT = 3000.0f;
 
   /**
@@ -31,12 +23,9 @@ public class ATAngestellter extends Mitarbeiter {
     super(vorname, nachname);
     if (monatsLohn >= 1.2 * HOECHSTES_TARIFGEHALT) {
       this.monatsLohn = monatsLohn;
-      this.jahresGehaltBisHeute = getJahresGehaltBisHeute();
     } else {
       System.out.println("Monatsgehalt entspricht nicht den AT-Angestellten-Anforderungen.");
     }
-    this.vorname = vorname;
-    this.nachname = nachname;
   }
 
   /**
@@ -45,28 +34,6 @@ public class ATAngestellter extends Mitarbeiter {
    * @return Das monatliche Bruttogehalt.
    */
   public float getMonatsLohn(){
-    return monatsLohn;
-  }
-
-  /**
-   * Gibt das Jahresgehalt des AT-Angestellten bis zum aktuellen Zeitpunkt zurück.
-   *
-   * @return Das Jahresgehalt bis heute.
-   */
-  public float getJahresGehaltBisHeute() {
-    return jahresGehaltBisHeute;
-  }
-
-  /**
-   * Berechnet das monatliche Entgelt des AT-Angestellten.
-   * Das Entgelt wird dem Jahresgehalt bis heute hinzugefügt.
-   *
-   * @return Das berechnete monatliche Entgelt.
-   */
-  @Override
-  public float entgeltBerechnen() {
-    if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) jahresGehaltBisHeute = 0;
-    super.jahresGehaltBisHeute += monatsLohn;
     return monatsLohn;
   }
 
@@ -86,6 +53,21 @@ public class ATAngestellter extends Mitarbeiter {
    */
   public String getNachname() {
     return nachname;
+  }
+
+  /**
+   * Berechnet das monatliche Entgelt des AT-Angestellten.
+   * Das Entgelt wird dem Jahresgehalt bis heute hinzugefügt.
+   *
+   * @return Das berechnete monatliche Entgelt.
+   */
+  @Override
+  public float entgeltBerechnen(int aktuellerMonat) {
+    if (aktuellerMonat == 1) {
+      jahresGehaltBisHeute = 0;
+    }
+    jahresGehaltBisHeute += monatsLohn * aktuellerMonat;
+    return monatsLohn * aktuellerMonat;
   }
 
   /**
