@@ -63,8 +63,8 @@ public class ATAngestellter extends Mitarbeiter {
    *
    * @return Das berechnete monatliche Entgelt.
    */
-  //@Override
-  public double entgeltBerechnen() {
+  @Override
+  public float entgeltBerechnen() {
     // Überprüfe, ob ein neues Jahr begonnen hat (Januar)
     if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) {
       // Setze das Jahresgehalt am Anfang des neuen Jahres auf 0
