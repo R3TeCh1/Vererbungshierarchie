@@ -1,8 +1,23 @@
+
+/**
+ *
+ * @author David Rischow
+ * @version 1.0, 16.10.2023
+ *
+ */
+
 public abstract class Mitarbeiter{
   protected String vorname;
   protected String nachname;
   protected float jahresGehaltBisHeute = 0;
 
+
+  /**
+   * Konstruktor für einen Mitarbeiter.
+   *
+   * @param vorname    Der Vorname des Angestellten.
+   * @param nachname   Der Nachname des Angestellten.
+   */
   public Mitarbeiter(String vorname, String nachname) {
     this.vorname = vorname;
     this.nachname = nachname;
@@ -20,15 +35,17 @@ public abstract class Mitarbeiter{
     return this.jahresGehaltBisHeute;
   }
 
-  public float entgeltBerechnen() {
-    return 1.0f;
-  }
+  /**
+   * entgeltBerechnen() wird als abstracte methode definiert, da für jeden Angestellten
+   * das Entgeld unterschiedlich berechnet wird.
+   */
+  public abstract float entgeltBerechnen();
 
   @Override
   public String toString() {
     String s = "Mitarbeiter{" +
-            "vorname='" + this.vorname + '\'' +
-            ", nachname='" + this.nachname + '\'' +
+            "vorname='" + this.getVorname() + '\'' +
+            ", nachname='" + this.getNachname() + '\'' +
             '}';
     return s;
   }
