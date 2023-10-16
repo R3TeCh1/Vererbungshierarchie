@@ -1,5 +1,3 @@
-import java.util.Calendar;
-
 /*
  * @author Nazanin Golalizadeh
  * @version 15.10.23
@@ -8,13 +6,11 @@ public class Zeitarbeiter extends Mitarbeiter{
     private float stundenLohn;
     private int gearbeiteteStunden;
 
-
     public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden){
         super(vorname, nachname);
         this.stundenLohn = stundenLohn;
         this.gearbeiteteStunden = gearbeiteteStunden;
     }
-
 
     //Getter
     public String getVorname() {

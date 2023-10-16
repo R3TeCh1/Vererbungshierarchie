@@ -1,12 +1,9 @@
-import java.util.Calendar;
-
 /**
  *
  * @author Oleksandr Cherniaiev
  * @version 1.0, 16.10.2023
  *
  */
-
 public class Angestellter extends Mitarbeiter{
     private float monatsLohn;
     private float ueberStundenTarif;
@@ -39,8 +36,8 @@ public class Angestellter extends Mitarbeiter{
         if (aktuellerMonat == 1) {
             jahresGehaltBisHeute = 0;
         }
-        jahresGehaltBisHeute += (monatsLohn + gearbeiteteUeberstunden * ueberStundenTarif) * aktuellerMonat;
-        return (monatsLohn + gearbeiteteUeberstunden * ueberStundenTarif) * aktuellerMonat;
+        jahresGehaltBisHeute += monatsLohn * aktuellerMonat + gearbeiteteUeberstunden * ueberStundenTarif;
+        return monatsLohn * aktuellerMonat + gearbeiteteUeberstunden * ueberStundenTarif;
     }
 
     @Override

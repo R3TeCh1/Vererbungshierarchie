@@ -1,5 +1,3 @@
-import java.util.Calendar;
-
 /**
  * Die Klasse ATAngestellter repräsentiert einen außertariflichen Angestellten.
  * AT-Angestellte sind Angestellte, deren monatliches Gehalt mindestens 20% über
@@ -10,7 +8,6 @@ import java.util.Calendar;
  */
 public class ATAngestellter extends Mitarbeiter {
   private float monatsLohn;
-  private static final float HOECHSTES_TARIFGEHALT = 3000.0f;
 
   /**
    * Konstruktor für einen AT-Angestellten.
@@ -21,11 +18,7 @@ public class ATAngestellter extends Mitarbeiter {
    */
   public ATAngestellter(String vorname, String nachname, float monatsLohn) {
     super(vorname, nachname);
-    if (monatsLohn >= 1.2 * HOECHSTES_TARIFGEHALT) {
-      this.monatsLohn = monatsLohn;
-    } else {
-      System.out.println("Monatsgehalt entspricht nicht den AT-Angestellten-Anforderungen.");
-    }
+    this.monatsLohn = monatsLohn;
   }
 
   /**
@@ -75,7 +68,6 @@ public class ATAngestellter extends Mitarbeiter {
    *
    * @return Die String-Repräsentation des AT-Angestellten.
    */
-  @Override
   public String toString() {
     return "AT-Angestellter: " + getNachname() + ", " + getVorname();
   }
