@@ -1,6 +1,6 @@
 /*
  * @author Nazanin Golalizadeh
- * @version 15.10.23
+ * @version 16.10.23
  */
 public class Zeitarbeiter extends Mitarbeiter{
     private float stundenLohn;

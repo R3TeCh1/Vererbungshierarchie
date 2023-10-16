@@ -4,7 +4,7 @@
  * dem höchsten Tarifgehalt liegt.
  *
  * @author Kadir Erzurum
- * @version 1.0, 15.10.2023
+ * @version 1.0, 16.10.2023
  */
 public class ATAngestellter extends Mitarbeiter {
   private float monatsLohn;
