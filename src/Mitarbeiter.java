@@ -1,9 +1,34 @@
-import java.util.Scanner;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public abstract class Mitarbeiter{
   protected String vorname;
   protected String nachname;
-  protected float jahresGehaltBisHeute = 0;
+  protected float jahresGehaltBisHeute;
+
+  public static void main(String[] args) {
+    Zeitarbeiter zeitarbeiter = new Zeitarbeiter("Nazanin", "Golalizadeh", 10.0f, 40);
+    ATAngestellter aTAngestellter = new ATAngestellter("Kadir", "Erzurum", 3600.0f);
+    Angestellter angestellter = new Angestellter("Oleksandr", "Cherniaiev", 3000.0f, 5.0f);
+
+    cal(zeitarbeiter);
+    cal(aTAngestellter);
+    cal(angestellter);
+  }
+
+  public static void cal(Mitarbeiter mitarbeiter) {
+    System.out.println("-----------------------------------------");
+    if (mitarbeiter instanceof Zeitarbeiter zeitarbeiter) {
+      System.out.println(mitarbeiter.toString());
+      System.out.println("Monatlich: " + mitarbeiter.entgeltBerechnen() + "€.");
+      System.out.println("Gearbeitete Stunden: " + zeitarbeiter.getGearbeiteteStunden());
+      System.out.println("Jahresgehalt: " + mitarbeiter.getJahresgehaltBisHeute() + "€");
+    } else {
+      System.out.println(mitarbeiter.toString());
+      System.out.println("Monatlich: " + mitarbeiter.entgeltBerechnen() + "€.");
+      System.out.println("Jahresgehalt: " + mitarbeiter.getJahresgehaltBisHeute() + "€");
+    }
+  }
 
   public Mitarbeiter(String vorname, String nachname) {
     this.vorname = vorname;
@@ -18,47 +43,19 @@ public abstract class Mitarbeiter{
     return this.nachname;
   }
 
-  public float getJahresGehaltBisHeute() {
-    return this.jahresGehaltBisHeute;
+  public float getJahresgehaltBisHeute() {
+    jahresGehaltBisHeute = 0;
+    GregorianCalendar gCalendar = new GregorianCalendar();
+    for (int months = 0; months < gCalendar.get(Calendar.MONTH); months++) {
+      jahresGehaltBisHeute += entgeltBerechnen();
+    }
+    return jahresGehaltBisHeute;
   }
 
-  public abstract float entgeltBerechnen(int aktuellerMonat);
+  public abstract float entgeltBerechnen();
 
   @Override
   public String toString() {
-    String s = "Mitarbeiter{" +
-            "vorname='" + this.vorname + '\'' +
-            ", nachname='" + this.nachname + '\'' +
-            '}';
-    return s;
-  }
-
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Bitte geben Sie den aktuellen Monat ein (1-12): ");
-    int aktuellerMonat = scanner.nextInt();
-
-    Zeitarbeiter zeitarbeiter = new Zeitarbeiter("Nazanin", "Golalizadeh", 10.0f);
-    ATAngestellter aTAngestellter = new ATAngestellter("Kadir", "Erzurum", 6000.0f);
-    Angestellter angestellter = new Angestellter("Oleksandr", "Cherniaiev", 3000.0f, 5.0f);
-
-    float zeitarbeiterEntgelt = zeitarbeiter.entgeltBerechnen(aktuellerMonat);
-    float aTAngestellterEntgelt = aTAngestellter.entgeltBerechnen(aktuellerMonat);
-    float angestellterEntgelt = angestellter.entgeltBerechnen(aktuellerMonat);
-
-    System.out.println("---------------------------------------------------------------------");
-    System.out.println(zeitarbeiter.toString());
-    System.out.println("Monatsgehalt: " + zeitarbeiterEntgelt);
-    System.out.println("Jahresgehalt bis heute: " + zeitarbeiter.getJahresGehaltBisHeute());
-
-    System.out.println("---------------------------------------------------------------------");
-    System.out.println(aTAngestellter.toString());
-    System.out.println("Monatsgehalt: " + aTAngestellterEntgelt);
-    System.out.println("Jahresgehalt bis heute: " + aTAngestellter.getJahresGehaltBisHeute());
-
-    System.out.println("---------------------------------------------------------------------");
-    System.out.println(angestellter.toString());
-    System.out.println("Monatsgehalt: " + angestellterEntgelt);
-    System.out.println("Jahresgehalt bis heute: " + angestellter.getJahresGehaltBisHeute());
+    return getClass().getSimpleName() + ": " + nachname + ", " + vorname;
   }
 }

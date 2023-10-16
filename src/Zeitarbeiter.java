@@ -16,12 +16,12 @@ public class Zeitarbeiter extends Mitarbeiter{
     private int gearbeiteteStunden;
 
 
-    public Zeitarbeiter(String vorname, String nachname, float stundenLohn){
+    public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden){
         super(vorname, nachname);
         this.vorname = vorname;
         this.nachname = nachname;
         this.stundenLohn = stundenLohn;
-        this.gearbeiteteStunden = 0;
+        this.gearbeiteteStunden = gearbeiteteStunden;
     }
 
 
@@ -51,21 +51,13 @@ public class Zeitarbeiter extends Mitarbeiter{
         this.gearbeiteteStunden = gearbeiteteStunden;
     }
 
-
     @Override
-    public float entgeltBerechnen(int aktuellerMonat) {
-        Calendar calendar = new GregorianCalendar();
-        if (calendar.get(Calendar.MONTH) + 1 == aktuellerMonat) {
-            float entgelt = stundenLohn * gearbeiteteStunden * aktuellerMonat;
-            jahresGehaltBisHeute += entgelt;
-            return entgelt;
-        } else {
-            return 0;
-        }
+    public float entgeltBerechnen() {
+        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) jahresGehaltBisHeute = 0;
+        float entgelt = gearbeiteteStunden * stundenLohn;
+        super.jahresGehaltBisHeute += entgelt;
+        return entgelt;
     }
-
-
-
 
     @Override
     public String toString() {

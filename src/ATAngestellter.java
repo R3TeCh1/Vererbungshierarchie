@@ -18,7 +18,7 @@ public class ATAngestellter extends Mitarbeiter {
   private float monatsLohn;
 
   /** Der Höchstbetrag für das Tarifgehalt. */
-  private static final float HOECHSTES_TARIFGEHALT = 5000.0f;
+  private static final float HOECHSTES_TARIFGEHALT = 3000.0f;
 
   /**
    * Konstruktor für einen AT-Angestellten.
@@ -61,19 +61,13 @@ public class ATAngestellter extends Mitarbeiter {
    * Berechnet das monatliche Entgelt des AT-Angestellten.
    * Das Entgelt wird dem Jahresgehalt bis heute hinzugefügt.
    *
-   * @param aktuellerMonat
    * @return Das berechnete monatliche Entgelt.
    */
   @Override
-  public float entgeltBerechnen(int aktuellerMonat) {
-    Calendar calendar = new GregorianCalendar();
-    if (calendar.get(Calendar.MONTH) + 1 == aktuellerMonat) {
-      float entgelt = monatsLohn;
-      jahresGehaltBisHeute += entgelt;
-      return entgelt;
-    } else {
-      return 0;
-    }
+  public float entgeltBerechnen() {
+    if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) jahresGehaltBisHeute = 0;
+    super.jahresGehaltBisHeute += monatsLohn;
+    return monatsLohn;
   }
 
   /**

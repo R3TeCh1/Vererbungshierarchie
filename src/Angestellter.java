@@ -10,41 +10,36 @@ import java.util.GregorianCalendar;
 
 public class Angestellter extends Mitarbeiter{
     private float monatsLohn;
-    private float uberStundenTarif;
-    private int gearbeiteteUberstunden;
+    private float ueberStundenTarif;
+    private int gearbeiteteUeberstunden;
 
-    public Angestellter(String vorname, String nachname, float monatsLohn, float uberStundenTarif){
+    public Angestellter(String vorname, String nachname, float monatsLohn, float ueberStundenTarif){
         super(vorname,nachname);
         this.monatsLohn = monatsLohn;
-        this.uberStundenTarif = uberStundenTarif;
+        this.ueberStundenTarif = ueberStundenTarif;
     }
 
     public float getMonatsLohn() {
         return monatsLohn;
     }
 
-    public float getUberStundenTarif() {
-        return uberStundenTarif;
+    public float getUeberStundenTarif() {
+        return ueberStundenTarif;
     }
 
-    public int getGearbeiteteUberstunden() {
-        return gearbeiteteUberstunden;
+    public int getGearbeiteteUeberstunden() {
+        return gearbeiteteUeberstunden;
     }
 
-    public void setGearbeiteteUberstunden(int gearbeiteteUberstunden) {
-        this.gearbeiteteUberstunden = gearbeiteteUberstunden;
+    public void setGearbeiteteUeberstunden(int gearbeiteteUeberstunden) {
+        this.gearbeiteteUeberstunden = gearbeiteteUeberstunden;
     }
 
     @Override
-    public float entgeltBerechnen(int aktuellerMonat) {
-        Calendar calendar = new GregorianCalendar();
-        if (calendar.get(Calendar.MONTH) + 1 == aktuellerMonat) {
-            float entgelt = (monatsLohn + uberStundenTarif * gearbeiteteUberstunden) * aktuellerMonat;
-            jahresGehaltBisHeute += entgelt;
-            return entgelt;
-        } else {
-            return 0;
-        }
+    public float entgeltBerechnen() {
+        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) jahresGehaltBisHeute = 0;
+        super.jahresGehaltBisHeute += monatsLohn + (gearbeiteteUeberstunden * ueberStundenTarif);
+        return monatsLohn + (gearbeiteteUeberstunden * ueberStundenTarif);
     }
 
 
