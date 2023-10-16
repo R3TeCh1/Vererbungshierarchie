@@ -4,6 +4,9 @@
  */
 
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class Zeitarbeiter extends Mitarbeiter{
 
     private String vorname;
@@ -13,7 +16,7 @@ public class Zeitarbeiter extends Mitarbeiter{
     private int gearbeiteteStunden;
 
 
-    public Zeitarbeiter(String vorname, String nachname, float stundenLohn, float gearbeiteteStunden){
+    public Zeitarbeiter(String vorname, String nachname, float stundenLohn){
         super(vorname, nachname);
         this.vorname = vorname;
         this.nachname = nachname;
@@ -50,6 +53,9 @@ public class Zeitarbeiter extends Mitarbeiter{
 
 
     public float entgeltBerechnen() {
+        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) {
+            jahresGehaltBisHeute = 0;
+        }
         float entgelt = stundenLohn * gearbeiteteStunden;
         jahresGehaltBisHeute += entgelt;
         return entgelt;
