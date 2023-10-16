@@ -35,12 +35,6 @@ public abstract class Mitarbeiter{
     return this.jahresGehaltBisHeute;
   }
 
-  /**
-   * entgeltBerechnen() wird als abstracte methode definiert, da für jeden Angestellten
-   * das Entgeld unterschiedlich berechnet wird.
-   */
-  public abstract float entgeltBerechnen();
-
   @Override
   public String toString() {
     String s = "Mitarbeiter{" +
@@ -49,4 +43,10 @@ public abstract class Mitarbeiter{
             '}';
     return s;
   }
+
+  /**
+   * entgeltBerechnen() wird als abstracte methode definiert, da für jeden Angestellten
+   * das Entgelt unterschiedlich berechnet wird.
+   */
+  public abstract float entgeltBerechnen();
 }
