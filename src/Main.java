@@ -3,7 +3,7 @@
  * @author Kadir Erzurum
  * @version 1.0, 16.10.2023
  */
-public class MitarbeiterTest {
+public class Main {
   public static void main(String[] args) {
     Zeitarbeiter zeitarbeiter = new Zeitarbeiter("Nazanin", "Golalizadeh", 12.0f, 40);
     ATAngestellter aTAngestellter = new ATAngestellter("Kadir", "Erzurum", 3600.0f);
