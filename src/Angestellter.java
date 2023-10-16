@@ -35,16 +35,18 @@ public class Angestellter extends Mitarbeiter{
         this.gearbeiteteUberstunden = gearbeiteteUberstunden;
     }
 
-    public float entgeltBerechnen() {
-        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) {
-            // Setze das Jahresgehalt am Anfang des neuen Jahres auf 0
-            jahresGehaltBisHeute = 0;
+    @Override
+    public float entgeltBerechnen(int aktuellerMonat) {
+        Calendar calendar = new GregorianCalendar();
+        if (calendar.get(Calendar.MONTH) + 1 == aktuellerMonat) {
+            float entgelt = (monatsLohn + uberStundenTarif * gearbeiteteUberstunden) * aktuellerMonat;
+            jahresGehaltBisHeute += entgelt;
+            return entgelt;
+        } else {
+            return 0;
         }
-        float entgelt = monatsLohn + uberStundenTarif * gearbeiteteUberstunden;
-        jahresGehaltBisHeute += entgelt;
-
-        return entgelt;
     }
+
 
     @Override
     public String toString() {

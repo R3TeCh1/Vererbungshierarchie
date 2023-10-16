@@ -52,14 +52,19 @@ public class Zeitarbeiter extends Mitarbeiter{
     }
 
 
-    public float entgeltBerechnen() {
-        if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) {
-            jahresGehaltBisHeute = 0;
+    @Override
+    public float entgeltBerechnen(int aktuellerMonat) {
+        Calendar calendar = new GregorianCalendar();
+        if (calendar.get(Calendar.MONTH) + 1 == aktuellerMonat) {
+            float entgelt = stundenLohn * gearbeiteteStunden * aktuellerMonat;
+            jahresGehaltBisHeute += entgelt;
+            return entgelt;
+        } else {
+            return 0;
         }
-        float entgelt = stundenLohn * gearbeiteteStunden;
-        jahresGehaltBisHeute += entgelt;
-        return entgelt;
     }
+
+
 
 
     @Override
