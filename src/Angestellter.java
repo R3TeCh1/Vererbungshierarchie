@@ -35,6 +35,7 @@ public class Angestellter extends Mitarbeiter{
         this.gearbeiteteUberstunden = gearbeiteteUberstunden;
     }
 
+    @Override
     public float entgeltBerechnen() {
         if (new GregorianCalendar().get(Calendar.MONTH) == Calendar.JANUARY) {
             // Setze das Jahresgehalt am Anfang des neuen Jahres auf 0
