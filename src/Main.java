@@ -16,8 +16,8 @@ public class Main {
     for (IMitarbeiter m : mitarbeiter) {
       float aktuellesEntgelt = m.entgeltBerechnen(aktuellerMonat);
       System.out.println("Entgelt von " + m.getVorname() + " " + m.getNachname() + ": " + aktuellesEntgelt + "€");
-      System.out.println("Tatsächliche Einkommensteuer: " + m.tatsächlicheEinkommenSteuer() + "€");
-      System.out.println("Voraussichtliche Einkommensteuer: " + m.voraussichtlicheEinkommenSteuer() + "€");
+      System.out.println("Tatsächliche Einkommensteuer: " + ((ISteuerZahler) m).tatsächlicheEinkommenSteuer() + "€");
+      System.out.println("Voraussichtliche Einkommensteuer: " + ((ISteuerZahler) m).voraussichtlicheEinkommenSteuer() + "€");
       System.out.println("---------------------------------------------");
     }
   }

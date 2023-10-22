@@ -8,6 +8,7 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
     private String vorname;
     private String nachname;
     private float jahresGehaltBisHeute;
+    private int aktuellerMonat;
 
     public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden) {
         this.vorname = vorname;

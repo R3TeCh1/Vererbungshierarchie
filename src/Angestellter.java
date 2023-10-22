@@ -11,6 +11,7 @@ public class Angestellter implements IMitarbeiter, ISteuerZahler {
     private String vorname;
     private String nachname;
     private float jahresGehaltBisHeute;
+    private int aktuellerMonat;
 
     public Angestellter(String vorname, String nachname, float monatsLohn, float ueberStundenTarif) {
         this.vorname = vorname;

@@ -11,6 +11,7 @@ public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
   private String vorname;
   private String nachname;
   private float jahresGehaltBisHeute;
+  private int aktuellerMonat;
 
   public ATAngestellter(String vorname, String nachname, float monatsLohn) {
     this.vorname = vorname;
