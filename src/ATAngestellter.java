@@ -4,56 +4,39 @@
  * dem höchsten Tarifgehalt liegt.
  *
  * @author Kadir Erzurum
- * @version 1.0, 16.10.2023
+ * @version
  */
-public class ATAngestellter extends Mitarbeiter {
+public class ATAngestellter implements IMitarbeiter {
   private float monatsLohn;
+  private String vorname;
+  private String nachname;
+  private float jahresGehaltBisHeute;
 
-  /**
-   * Konstruktor für einen AT-Angestellten.
-   *
-   * @param vorname    Der Vorname des Angestellten.
-   * @param nachname   Der Nachname des Angestellten.
-   * @param monatsLohn Das monatliche Bruttogehalt des Angestellten.
-   */
   public ATAngestellter(String vorname, String nachname, float monatsLohn) {
-    super(vorname, nachname);
+    this.vorname = vorname;
+    this.nachname = nachname;
     this.monatsLohn = monatsLohn;
   }
 
-  /**
-   * Gibt das monatliche Bruttogehalt des AT-Angestellten zurück.
-   *
-   * @return Das monatliche Bruttogehalt.
-   */
   public float getMonatsLohn(){
     return monatsLohn;
   }
 
-  /**
-   * Gibt den Vorname des AT-Angestellten zurück.
-   *
-   * @return Der Vorname des AT-Angestellten.
-   */
+  @Override
   public String getVorname() {
     return vorname;
   }
 
-  /**
-   * Gibt den Nachname des AT-Angestellten zurück.
-   *
-   * @return Der Nachname des AT-Angestellten.
-   */
+  @Override
   public String getNachname() {
     return nachname;
   }
 
-  /**
-   * Berechnet das monatliche Entgelt des AT-Angestellten.
-   * Das Entgelt wird dem Jahresgehalt bis heute hinzugefügt.
-   *
-   * @return Das berechnete monatliche Entgelt.
-   */
+  @Override
+  public float getJahresgehaltBisHeute() {
+    return jahresGehaltBisHeute;
+  }
+
   @Override
   public float entgeltBerechnen(int aktuellerMonat) {
     if (aktuellerMonat == 1) {

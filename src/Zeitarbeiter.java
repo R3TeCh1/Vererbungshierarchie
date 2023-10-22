@@ -1,27 +1,31 @@
 /*
  * @author Nazanin Golalizadeh
- * @version 16.10.23
+ * @version
  */
-public class Zeitarbeiter extends Mitarbeiter{
+public class Zeitarbeiter implements IMitarbeiter {
     private float stundenLohn;
     private int gearbeiteteStunden;
+    private String vorname;
+    private String nachname;
+    private float jahresGehaltBisHeute;
 
-    public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden){
-        super(vorname, nachname);
+    public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden) {
+        this.vorname = vorname;
+        this.nachname = nachname;
         this.stundenLohn = stundenLohn;
         this.gearbeiteteStunden = gearbeiteteStunden;
     }
 
-    //Getter
+    @Override
     public String getVorname() {
         return vorname;
     }
 
+    @Override
     public String getNachname() {
         return nachname;
     }
 
-    //Methoden
     public float getStundenLohn() {
         return stundenLohn;
     }
@@ -30,8 +34,9 @@ public class Zeitarbeiter extends Mitarbeiter{
         return gearbeiteteStunden;
     }
 
-    public void setGearbeiteteStunden(int gearbeiteteStunden) {
-        this.gearbeiteteStunden = gearbeiteteStunden;
+    @Override
+    public float getJahresgehaltBisHeute() {
+        return jahresGehaltBisHeute;
     }
 
     @Override
