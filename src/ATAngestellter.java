@@ -6,7 +6,7 @@
  * @author Kadir Erzurum
  * @version
  */
-public class ATAngestellter implements IMitarbeiter {
+public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
   private float monatsLohn;
   private String vorname;
   private String nachname;
@@ -18,8 +18,13 @@ public class ATAngestellter implements IMitarbeiter {
     this.monatsLohn = monatsLohn;
   }
 
-  public float getMonatsLohn(){
-    return monatsLohn;
+  @Override
+  public float entgeltBerechnen(int aktuellerMonat) {
+    if (aktuellerMonat == 1) {
+      jahresGehaltBisHeute = 0;
+    }
+    jahresGehaltBisHeute += monatsLohn * aktuellerMonat;
+    return monatsLohn * aktuellerMonat;
   }
 
   @Override
@@ -38,11 +43,13 @@ public class ATAngestellter implements IMitarbeiter {
   }
 
   @Override
-  public float entgeltBerechnen(int aktuellerMonat) {
-    if (aktuellerMonat == 1) {
-      jahresGehaltBisHeute = 0;
-    }
-    jahresGehaltBisHeute += monatsLohn * aktuellerMonat;
-    return monatsLohn * aktuellerMonat;
+  public float tatsächlicheEinkommenSteuer() {
+    return jahresGehaltBisHeute * 0.36f; // Einkommensteuersatz von 36%
+  }
+
+  @Override
+  public float voraussichtlicheEinkommenSteuer() {
+    float restlichesJahresgehalt = (12 - aktuellerMonat) * monatsLohn;
+    return (jahresGehaltBisHeute + restlichesJahresgehalt) * 0.36f;
   }
 }
