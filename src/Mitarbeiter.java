@@ -6,10 +6,11 @@
  *
  */
 
-public abstract class Mitarbeiter{
+public abstract class Mitarbeiter implements IMitarbeiter{
   protected String vorname;
   protected String nachname;
   protected float jahresGehaltBisHeute = 0;
+  protected VertragsArtT vertragsart;
 
 
   /**
@@ -18,9 +19,14 @@ public abstract class Mitarbeiter{
    * @param vorname    Der Vorname des Angestellten.
    * @param nachname   Der Nachname des Angestellten.
    */
-  public Mitarbeiter(String vorname, String nachname) {
+  public Mitarbeiter(String vorname, String nachname, VertragsArtT vertragsart) {
     this.vorname = vorname;
     this.nachname = nachname;
+    this.vertragsart = vertragsart;
+  }
+
+  public VertragsArtT getVertragsart() {
+    return this.vertragsart;
   }
 
   public String getVorname() {

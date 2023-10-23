@@ -64,6 +64,7 @@ public class Zeitarbeiter extends Mitarbeiter{
 
     @Override
     public String toString() {
-        return "Zeitarbeiter: " + getNachname() + ", " + getVorname();
+        return "Zeitarbeiter: " + super.toString() + ", Jahresgehalt: "
+                + getJahresGehaltBisHeute() + ", Stundenlohn: " + getStundenLohn();
     }
 }
