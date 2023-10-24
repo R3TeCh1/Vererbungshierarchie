@@ -9,6 +9,7 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
     private String nachname;
     private float jahresGehaltBisHeute;
     private int aktuellerMonat;
+    private VertragsArtT vertragsArtT;
 
     public Zeitarbeiter(String vorname, String nachname, float stundenLohn, int gearbeiteteStunden) {
         this.vorname = vorname;
@@ -40,6 +41,16 @@ public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
     @Override
     public float getJahresgehaltBisHeute() {
         return jahresGehaltBisHeute;
+    }
+
+    @Override
+    public VertragsArtT getVertragsart() {
+        return vertragsArtT;
+    }
+
+    @Override
+    public void setVertragsart(VertragsArtT vertragsart) {
+        this.vertragsArtT = vertragsart;
     }
 
     @Override

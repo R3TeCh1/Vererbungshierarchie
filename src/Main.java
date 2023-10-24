@@ -23,11 +23,11 @@ public class Main {
       System.out.println("---------------------------------------------");
     }
 
-      for (IMitarbeiter einzel_mitarbeiter : mitarbeiter){
-          System.out.println("Voraussichtliche Einkommenssteuer ", einzel_mitarbeiter.getVorname(), ": ", einzel_mitarbeiter.voraussichtlicheEinkommenssteuer());
-      }
-      for (IMitarbeiter einzel_mitarbeiter : mitarbeiter){
-          System.out.println("Tatsächliche Einkommenssteuer ", einzel_mitarbeiter.getVorname(), ": ", einzel_mitarbeiter.tatsächlicheEinkommenSteuer());
-      }
+    for (IMitarbeiter einzel_mitarbeiter : mitarbeiter){
+      System.out.println("Voraussichtliche Einkommenssteuer " + einzel_mitarbeiter.getVorname() + ": " + ((ISteuerZahler) einzel_mitarbeiter).voraussichtlicheEinkommenSteuer());
+    }
+    for (IMitarbeiter einzel_mitarbeiter : mitarbeiter){
+      System.out.println("Tatsächliche Einkommenssteuer " + einzel_mitarbeiter.getVorname() + ": " + ((ISteuerZahler) einzel_mitarbeiter).tatsächlicheEinkommenSteuer());
+    }
   }
 }

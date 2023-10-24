@@ -1,7 +1,7 @@
 /**
  *
- * @author Kadir Erzurum
- * @version
+ * @author Kadir Erzurum, Oleksandr Cherniaiev
+ * @version 2.1
  *
  */
 public class Angestellter implements IMitarbeiter, ISteuerZahler {
@@ -12,6 +12,8 @@ public class Angestellter implements IMitarbeiter, ISteuerZahler {
     private String nachname;
     private float jahresGehaltBisHeute;
     private int aktuellerMonat;
+
+    private VertragsArtT vertragsArtT;
 
     public Angestellter(String vorname, String nachname, float monatsLohn, float ueberStundenTarif) {
         this.vorname = vorname;
@@ -47,6 +49,16 @@ public class Angestellter implements IMitarbeiter, ISteuerZahler {
     @Override
     public float getJahresgehaltBisHeute() {
         return jahresGehaltBisHeute;
+    }
+
+    @Override
+    public VertragsArtT getVertragsart() {
+        return this.vertragsArtT;
+    }
+
+    @Override
+    public void setVertragsart(VertragsArtT vertragsart) {
+        this.vertragsArtT = vertragsart;
     }
 
     @Override

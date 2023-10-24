@@ -13,6 +13,8 @@ public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
   private float jahresGehaltBisHeute;
   private int aktuellerMonat;
 
+  private VertragsArtT vertragsArtT;
+
   public ATAngestellter(String vorname, String nachname, float monatsLohn) {
     this.vorname = vorname;
     this.nachname = nachname;
@@ -41,6 +43,16 @@ public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
   @Override
   public float getJahresgehaltBisHeute() {
     return jahresGehaltBisHeute;
+  }
+
+  @Override
+  public VertragsArtT getVertragsart() {
+    return vertragsArtT;
+  }
+
+  @Override
+  public void setVertragsart(VertragsArtT vertragsart) {
+    this.vertragsArtT = vertragsart;
   }
 
   @Override
