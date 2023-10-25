@@ -1,8 +1,7 @@
 /**
  *
- * @author Kadir Erzurum, Oleksandr Cherniaiev
+ * @author Kadir Erzurum, Oleksandr Cherniaiev, David Rischow, Nazanin Golalizadeh
  * @version 2.1
- *
  */
 public class Angestellter implements IMitarbeiter, ISteuerZahler {
     private float monatsLohn;

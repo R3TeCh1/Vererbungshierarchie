@@ -1,6 +1,7 @@
-/*
- * @author Kadir Erzurum
- * @version
+/**
+ *
+ * @author Kadir Erzurum, Oleksandr Cherniaiev, David Rischow, Nazanin Golalizadeh
+ * @version 2.1
  */
 public class Zeitarbeiter implements IMitarbeiter, ISteuerZahler {
     private float stundenLohn;

@@ -1,9 +1,7 @@
-import java.util.ArrayList;
-
 /**
  *
- * @author Kadir Erzurum
- * @version
+ * @author Kadir Erzurum, Oleksandr Cherniaiev, David Rischow, Nazanin Golalizadeh
+ * @version 2.1
  */
 public class Main {
   public static void main(String[] args) {

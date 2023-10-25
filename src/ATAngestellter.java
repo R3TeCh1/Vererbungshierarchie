@@ -3,8 +3,8 @@
  * AT-Angestellte sind Angestellte, deren monatliches Gehalt mindestens 20% über
  * dem höchsten Tarifgehalt liegt.
  *
- * @author Kadir Erzurum
- * @version
+ * @author Kadir Erzurum, Oleksandr Cherniaiev, David Rischow, Nazanin Golalizadeh
+ * @version 2.1
  */
 public class ATAngestellter implements IMitarbeiter, ISteuerZahler {
   private float monatsLohn;
